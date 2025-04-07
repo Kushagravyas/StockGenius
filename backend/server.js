@@ -1,18 +1,18 @@
 require("dotenv").config();
 
-const connectDB = require("./config/db");
+import connectDB from "./config/db.js";
 
-const express = require("express");
-const cors = require("cors");
-const morgan = require("morgan");
-const helmet = require("helmet");
+import express, { json } from "express";
+import cors from "cors";
+import morgan from "morgan";
+import helmet from "helmet";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 
 // Parse JSON request bodies (e.g., for POST/PUT requests)
-app.use(express.json());
+app.use(json());
 
 // Log HTTP requests in development
 if (process.env.NODE_ENV === "development") {
