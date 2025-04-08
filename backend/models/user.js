@@ -1,29 +1,36 @@
 import { Schema, model } from "mongoose";
 import { hash, compare } from "bcryptjs";
-import { isEmail } from "validator";
+import validator from "validator";
 
 const userSchema = new Schema({
     name: {
-        type: "String",
+        type: String,
         required: [true, "Please enter your name"],
         trim: true
 
          },
 
     email: {
-        type: "String",
+        type: String,
         required: [true, "Please enter your email"],
         unique: true,
         lowercase: true,
-        validate: [isEmail,"Please provide valid email"]
+        validate: [validator.isEmail,"Please provide valid email"]
 
     },
 
     password: {
-        type: "String",
+        type: String,
         required: true,
         minlength: [8,"Length should be more then 8 characters"], 
+        select: false,
     },
+
+    avatar: {
+      type: String,
+      default: "",
+    },
+    
 
     passwordChangedAt: Date,
 
