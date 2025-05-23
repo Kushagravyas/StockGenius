@@ -81,7 +81,7 @@ const SplashScreen = ({ onComplete }) => {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="text-xl md:text-2xl text-white mb-12"
         >
-          Where Prediction Makes Profit
+          Where Analytics Becomes Assets
         </motion.p>
 
         {/* Loading Bar */}

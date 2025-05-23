@@ -73,7 +73,7 @@ const HeroSection = ({ features }) => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 gradient-text"
         >
-          Where prediction
+          Where Analytics
         </motion.h1>
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
@@ -81,7 +81,7 @@ const HeroSection = ({ features }) => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 gradient-text"
         >
-          Makes Profit
+          Becomes Assets
         </motion.h3>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
