@@ -4,8 +4,10 @@ import { motion, useInView } from "framer-motion";
 import { useParallax } from "react-scroll-parallax";
 import { Button } from "@/components/ui/button";
 import { Shield, Zap, BarChart, PieChart } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = ({ features }) => {
+  const navigate=useNavigate();
   const heroRef = useRef(null);
   const statsRef = useRef(null);
   const featuresRef = useRef(null);
@@ -99,7 +101,9 @@ const HeroSection = ({ features }) => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex justify-center gap-4"
         >
-          <Button size="lg" className="text-lg">
+          <Button size="lg" className="text-lg" onClick={()=>{
+            navigate("/auth")
+          }}>
             Get Started
           </Button>
           <Button variant="outline" size="lg" className="text-lg">

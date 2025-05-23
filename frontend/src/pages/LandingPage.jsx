@@ -80,21 +80,21 @@ const LandingPage = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "Hemant Tandan",
       role: "Day Trader",
       content:
         "StockGenius has completely transformed my trading strategy. The AI insights have helped me identify opportunities I would have otherwise missed.",
       avatar: "/assets/StockImage.png",
     },
     {
-      name: "Michael Chen",
+      name: "Aditya Raut",
       role: "Long-term Investor",
       content:
         "As someone who invests for the long term, the analysis provided by StockGenius gives me confidence in my investment decisions.",
       avatar: "/assets/StockImage1.png",
     },
     {
-      name: "Jessica Williams",
+      name: "Mr. Bihari Ji",
       role: "Financial Advisor",
       content:
         "I recommend StockGenius to all my clients. The intuitive interface and powerful tools make it accessible for investors of all experience levels.",
@@ -392,6 +392,11 @@ const LandingPage = () => {
                 </div>
                 <div className="text-gray-400 text-sm">
                   © {new Date().getFullYear()} StockGenius. All rights reserved.
+                </div>
+                <div className="flex gap-2">
+                <div className="text-primary">Created with ❤️</div>
+                <div className="text-primary/50">By</div>
+                <div className="text-foreground">Kushagra Shukla & Kushagra Vyas</div>
                 </div>
               </div>
             </div>
