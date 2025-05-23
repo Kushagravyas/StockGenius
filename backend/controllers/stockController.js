@@ -1,4 +1,4 @@
-import Stock from "../models/stock.js";
+import Stock from "../models/Stock.js";
 import { getCache, setCache } from "../utils/cache.js";
 import {
   getIntradayData,
