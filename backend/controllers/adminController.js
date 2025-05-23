@@ -68,6 +68,7 @@ export const allUsers = async (req, res) => {
 export const deleteUser = async (req, res) => {
   try {
     const { userId } = req.params;
+    console.log("userID: ",userId)
 
     // Check if user exists
     const user = await User.findById(userId);

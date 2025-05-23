@@ -15,7 +15,7 @@ export const allUsers = createAsyncThunk(
 export const deleteUser = createAsyncThunk(
   "admin/deleteUser",
   async (userId) => {
-    await api.delete(`/admin/users/${userId}`);
+    await api.get(`/admin/users/${userId}`);
     return userId;
   }
 );
