@@ -7,7 +7,7 @@ import {
   fetchGlobalQuote,
 } from "../utils/alphaVantage.js";
 import { getCache, setCache } from "../utils/cache.js";
-import Stock from "../models/Stock.js";
+import Stock from "../models/stock.js";
 import { geminiClient } from "../utils/gemini.js";
 import {
   generateFullAnalysisPrompt,

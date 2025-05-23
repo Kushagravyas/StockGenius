@@ -1,4 +1,4 @@
-import User from "../models/User";
+import User from "../models/user.js";
 
 // 1. Fetch all users(as an Admin)
 export const allUsers = async (req, res) => {
