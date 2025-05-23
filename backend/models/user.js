@@ -2,60 +2,53 @@ import { Schema, model } from "mongoose";
 import { hash, compare } from "bcryptjs";
 import validator from "validator";
 
-const userSchema = new Schema({
+const userSchema = new Schema(
+  {
     name: {
-        type: String,
-        required: [true, "Please enter your name"],
-        trim: true
-
-         },
-
+      type: String,
+      required: [true, "Please enter your name"],
+      trim: true,
+    },
     email: {
-        type: String,
-        required: [true, "Please enter your email"],
-        unique: true,
-        lowercase: true,
-        validate: [validator.isEmail,"Please provide valid email"]
-
+      type: String,
+      required: [true, "Please provide your email"],
+      unique: true,
+      lowercase: true,
+      validate: [validator.isEmail, "Please provide valid email"],
     },
-
     password: {
-        type: String,
-        required: true,
-        minlength: [8,"Length should be more then 8 characters"], 
-        select: false,
+      type: String,
+      required: [true, "Please provide a password"],
+      minlength: 8,
+      select: false,
     },
-
     avatar: {
       type: String,
       default: "",
     },
-    
-
+    role: { type: String, enum: ["user", "admin"], default: "user" },
+    watchlist: [
+      {
+        symbol: String,
+        name: String,
+        addedAt: { type: Date, default: Date.now },
+      },
+    ],
     passwordChangedAt: Date,
+  },
+  { timestamps: true }
+);
 
-
-    createdAt: {
-        type: Date, 
-        default: Date.now,
-    }
+// Password hashing middleware
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
+  this.password = await hash(this.password, 12);
+  next();
 });
 
-// MIDDLEWARE: Hash password before saving
-userSchema.pre('save', async function(next) {
-    if (!this.isModified('password')) return next();
-    
-    this.password = await hash(this.password, 12);
-    next();
-  });
-  
-  // INSTANCE METHOD: Check password correctness
-  userSchema.methods.correctPassword = async function(
-    candidatePassword, 
-    userPassword
-  ) {
-    return await compare(candidatePassword, userPassword);
-  };
-  
-  const User = model('User', userSchema);
-  export default User;
+// Password comparison method
+userSchema.methods.correctPassword = async function (candidatePassword) {
+  return await compare(candidatePassword, this.password);
+};
+
+export default model("User", userSchema);
