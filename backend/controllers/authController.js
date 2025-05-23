@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "../models/User.js";
+import User from "../models/User";
 import { v2 as cloudinary } from "cloudinary";
 
 // Helper function to create JWT token

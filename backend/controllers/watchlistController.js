@@ -1,4 +1,4 @@
-import User from "../models/User.js";
+import User from "../models/User";
 
 export const getWatchlist = async (req, res) => {
   try {
