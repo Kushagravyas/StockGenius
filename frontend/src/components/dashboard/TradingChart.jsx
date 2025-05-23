@@ -37,7 +37,9 @@ const TradingChart = ({ symbol, interval = "1min" }) => {
 
   const fetchAlphaVantageData = useCallback(async () => {
     try {
-      const res = await fetch(`/api/stocks/${symbol}/candles?interval=${interval}`);
+      // Add base URL if needed
+    const baseUrl = import.meta.env.VITE_API_URL || '';
+    const res = await fetch(`${baseUrl}/stocks/${symbol}/candles?interval=${interval}`);
       if (!res.ok) {
         const errorData = await res.json();
         throw new Error(errorData.error || `HTTP error! status: ${res.status}`);

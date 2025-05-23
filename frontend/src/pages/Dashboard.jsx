@@ -369,7 +369,7 @@ const Dashboard = () => {
                           <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            className="space-y-6"
+                            className="space-y-6 h-full overflow-y-auto"
                           >
                             <div className="bg-card/50 p-6 rounded-xl border border-primary/10">
                               <h3 className="text-xl font-bold mb-4">
