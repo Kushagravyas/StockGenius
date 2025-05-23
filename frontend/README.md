@@ -1,0 +1,3 @@
+# StockGenius
+
+frontend
