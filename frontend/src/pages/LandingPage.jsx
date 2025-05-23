@@ -383,24 +383,28 @@ const LandingPage = () => {
           </section>
 
           {/* Footer */}
-          <footer className="py-12 bg-background border-t border-primary/10">
-            <div className="container mx-auto px-4">
-              <div className="flex flex-col md:flex-row justify-between items-center">
-                <div className="flex items-center mb-6 md:mb-0">
-                  <TrendingUp className="h-8 w-8 text-primary mr-2" />
-                  <span className="text-2xl font-bold gradient-text">StockGenius</span>
-                </div>
-                <div className="text-gray-400 text-sm">
-                  © {new Date().getFullYear()} StockGenius. All rights reserved.
-                </div>
-                <div className="flex gap-2">
-                <div className="text-primary">Created with ❤️</div>
-                <div className="text-primary/50">By</div>
-                <div className="text-foreground">Kushagra Shukla & Kushagra Vyas</div>
-                </div>
-              </div>
-            </div>
-          </footer>
+<footer className="py-12 bg-background border-t border-primary/10">
+  <div className="container mx-auto px-4">
+    <div className="flex flex-col gap-6 items-center text-center md:flex-row md:justify-between md:text-left">
+      <div className="flex items-center">
+        <TrendingUp className="h-8 w-8 text-primary mr-2" />
+        <span className="text-2xl font-bold gradient-text">StockGenius</span>
+      </div>
+      
+      <div className="text-gray-400 text-sm order-3 md:order-2">
+        © {new Date().getFullYear()} StockGenius. All rights reserved.
+      </div>
+      
+      <div className="flex flex-col items-center md:items-end gap-1 order-2 md:order-3">
+        <div className="text-primary">Created with ❤️</div>
+        <div className="flex items-center gap-2">
+          <span className="text-primary/50">By</span>
+          <span className="text-foreground">Kushagra Shukla & Kushagra Vyas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
         </div>
       )}
     </>
