@@ -3,11 +3,12 @@ import dotenv from "dotenv";
 import Stock from "../models/Stock.js";
 import stocks from "./stocksData.js";
 
-dotenv.config({path: "../.env"});
+dotenv.config();
 
 const seedStocks = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI);
+    await Stock.deleteMany(); // Optional: clear old data
     await Stock.insertMany(stocks);
     console.log("✅ Stock metadata seeded!");
     process.exit();
@@ -16,5 +17,5 @@ const seedStocks = async () => {
     process.exit(1);
   }
 };
+
 seedStocks();
-export default seedStocks;
